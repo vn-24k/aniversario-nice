@@ -1,187 +1,47 @@
 import React from 'react';
+import { Sparkles } from 'lucide-react';
 
 interface UivGlowPillButtonProps {
-  className?: string;
+  label?: string;
   onClick?: () => void;
-  [key: string]: any;
+  className?: string;
 }
 
-export function UivGlowPillButton({ className = '', onClick, ...props }: UivGlowPillButtonProps) {
+export function UivGlowPillButton({ label = "Tocar Harpa de Parabéns", onClick, className = '' }: UivGlowPillButtonProps) {
   return (
-    <div className={`uiv_scoped_btn3 inline-block ${className}`} onClick={onClick}>
-      
+    <div className={`uiv_scoped_btn3 inline-block ${className}`}>
       <style>{`
-.uiv_scoped_btn3 #btn-message {
-  --text-color: #000;
-  --bg-color-sup: #d2d2d2;
-  --bg-color: #f4f4f4;
-  --bg-hover-color: #ffffff;
-  --online-status: #00da00;
-  --font-size: 16px;
-  --btn-transition: all 0.2s ease-out;
-}
-.uiv_scoped_btn3 .button-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font: 400 var(--font-size) Helvetica Neue, sans-serif;
-  box-shadow: 0 0 2.17382px rgba(0, 0, 0, 0.049),
-    0 1.75px 6.01034px rgba(0, 0, 0, 0.07),
-    0 3.63px 14.4706px rgba(0, 0, 0, 0.091), 0 22px 48px rgba(0, 0, 0, 0.14);
-  background-color: var(--bg-color);
-  border-radius: 68px;
-  cursor: pointer;
-  padding: 6px 10px 6px 6px;
-  width: fit-content;
-  height: 40px;
-  border: 0;
-  overflow: hidden;
-  position: relative;
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .button-message:hover {
-  height: 56px;
-  padding: 8px 20px 8px 8px;
-  background-color: var(--bg-hover-color);
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .button-message:active {
-  transform: scale(0.99);
-}
-.uiv_scoped_btn3 .content-avatar {
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  transition: var(--btn-transition);
-  position: relative;
-}
-.uiv_scoped_btn3 .button-message:hover .content-avatar {
-  width: 40px;
-  height: 40px;
-}
-.uiv_scoped_btn3 .avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--bg-color-sup);
-}
-.uiv_scoped_btn3 .user-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.uiv_scoped_btn3 .status-user {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  right: 1px;
-  bottom: 1px;
-  border-radius: 50%;
-  outline: solid 2px var(--bg-color);
-  background-color: var(--online-status);
-  transition: var(--btn-transition);
-  animation: active-status 2s ease-in-out infinite;
-}
-.uiv_scoped_btn3 .button-message:hover .status-user {
-  width: 10px;
-  height: 10px;
-  right: 1px;
-  bottom: 1px;
-  outline: solid 3px var(--bg-hover-color);
-}
-.uiv_scoped_btn3 .notice-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding-left: 8px;
-  text-align: initial;
-  color: var(--text-color);
-}
-.uiv_scoped_btn3 .username {
-  letter-spacing: -6px;
-  height: 0;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .user-id {
-  font-size: 12px;
-  letter-spacing: -6px;
-  height: 0;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .lable-message {
-  display: flex;
-  align-items: center;
-  opacity: 1;
-  transform: scaleY(1);
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .button-message:hover .username {
-  height: auto;
-  letter-spacing: normal;
-  opacity: 1;
-  transform: translateY(0);
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .button-message:hover .user-id {
-  height: auto;
-  letter-spacing: normal;
-  opacity: 1;
-  transform: translateY(0);
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .button-message:hover .lable-message {
-  height: 0;
-  transform: scaleY(0);
-  transition: var(--btn-transition);
-}
-.uiv_scoped_btn3 .lable-message, .uiv_scoped_btn3 .username {
-  font-weight: 600;
-}
-.uiv_scoped_btn3 .number-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-left: 8px;
-  font-size: 12px;
-  width: 16px;
-  height: 16px;
-  background-color: var(--bg-color-sup);
-  border-radius: 20px;
-}
-.uiv_scoped_btn3 100% {
-  background-color: var(--online-status);
-}
+        .uiv_scoped_btn3 .glow-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 14px 28px;
+          background: linear-gradient(135deg, rgba(245, 208, 97, 0.2), rgba(224, 86, 253, 0.2));
+          border: 1px solid rgba(245, 208, 97, 0.5);
+          border-radius: 9999px;
+          color: #fef08a;
+          font-family: 'Syne', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          cursor: pointer;
+          backdrop-filter: blur(16px);
+          transition: all 0.3s ease;
+          box-shadow: 0 0 30px rgba(245, 208, 97, 0.25);
+        }
+        .uiv_scoped_btn3 .glow-btn:hover {
+          background: linear-gradient(135deg, rgba(245, 208, 97, 0.35), rgba(224, 86, 253, 0.4));
+          border-color: rgba(245, 208, 97, 0.9);
+          box-shadow: 0 0 45px rgba(245, 208, 97, 0.5);
+          transform: translateY(-2px) scale(1.03);
+          color: #ffffff;
+        }
       `}</style>
-      <button id="btn-message" className="button-message">
-  <div className="content-avatar">
-    <div className="status-user"></div>
-    <div className="avatar">
-      <svg
-        className="user-img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12,12.5c-3.04,0-5.5,1.73-5.5,3.5s2.46,3.5,5.5,3.5,5.5-1.73,5.5-3.5-2.46-3.5-5.5-3.5Zm0-.5c1.66,0,3-1.34,3-3s-1.34-3-3-3-3,1.34-3,3,1.34,3,3,3Z"
-        ></path>
-      </svg>
-    </div>
-  </div>
-  <div className="notice-content">
-    <div className="username">Jessica Sanders</div>
-    <div className="lable-message">
-      Message<span className="number-message">3</span>
-    </div>
-    <div className="user-id">@jessisanders</div>
-  </div>
-</button>
+      <button className="glow-btn" onClick={onClick} type="button">
+        <Sparkles className="w-4 h-4 text-amber-300" />
+        <span>{label}</span>
+      </button>
     </div>
   );
 }

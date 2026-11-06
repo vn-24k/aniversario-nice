@@ -1,68 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Check } from 'lucide-react';
 
-interface UivPromiseCheckbox3Props {
-  className?: string;
-  onClick?: () => void;
-  [key: string]: any;
-}
-
-export function UivPromiseCheckbox3({ className = '', onClick, ...props }: UivPromiseCheckbox3Props) {
+export function UivPromiseCheckbox3({ className = '' }: { className?: string }) {
+  const [checked, setChecked] = useState(true);
   return (
-    <div className={`uiv_scoped_chk3 inline-block ${className}`} onClick={onClick}>
-      
-      <style>{`
-.uiv_scoped_chk3 .container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-.uiv_scoped_chk3 .container {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  font-size: 25px;
-  user-select: none;
-}
-.uiv_scoped_chk3 .checkmark {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 1.3em;
-  width: 1.3em;
-  background: black;
-  border-radius: 50px;
-  transition: all 0.7s;
-  --spread: 20px;
-}
-.uiv_scoped_chk3 .container input:checked ~ .checkmark {
-  background: black;
-  box-shadow: -10px -10px var(--spread) 0px #FFD700, 0 -10px var(--spread) 0px #FFD700, 10px -10px var(--spread) 0px #FFD700, 10px 0 var(--spread) 0px #FFD700, 10px 10px var(--spread) 0px #FFD700, 0 10px var(--spread) 0px #FFD700, -10px 10px var(--spread) 0px #FFD700;
-}
-.uiv_scoped_chk3 .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.uiv_scoped_chk3 .container input:checked ~ .checkmark:after {
-  display: block;
-  animation: checkmark 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-.uiv_scoped_chk3 .container .checkmark:after {
-  left: 0.45em;
-  top: 0.25em;
-  width: 0.25em;
-  height: 0.5em;
-  border: solid #FFD700;
-  border-width: 0 0.15em 0.15em 0;
-  transform: rotate(45deg);
-}
-      `}</style>
-      <label className="container">
-		<input type="checkbox" checked="checked" />
-		<div className="checkmark"></div>
-	</label>
+    <div className={`uiv_scoped_chk3 inline-flex items-center gap-3 cursor-pointer ${className}`} onClick={() => setChecked(!checked)}>
+      <div className={`w-5 h-5 rounded-lg border flex items-center justify-center transition-all ${checked ? 'bg-fuchsia-600 border-fuchsia-400 text-white shadow-[0_0_12px_rgba(224,86,253,0.5)]' : 'bg-black/40 border-white/20'}`}>
+        {checked && <Check className="w-3.5 h-3.5" />}
+      </div>
+      <span className="text-xs text-purple-200/90 font-light">Estar sempre por perto para comemorar cada vitória 🌸</span>
     </div>
   );
 }

@@ -1,60 +1,18 @@
 import React from 'react';
 
 interface UivAffectionTooltipProps {
+  text?: string;
+  children?: React.ReactNode;
   className?: string;
-  onClick?: () => void;
-  [key: string]: any;
 }
 
-export function UivAffectionTooltip({ className = '', onClick, ...props }: UivAffectionTooltipProps) {
+export function UivAffectionTooltip({ text = "Amor de Mãe", children, className = '' }: UivAffectionTooltipProps) {
   return (
-    <div className={`uiv_scoped_tip1 inline-block ${className}`} onClick={onClick}>
-      
-      <style>{`
-.uiv_scoped_tip1 .tooltip-container {
-  color: #ffffff;
-  --background: #00a36d;
-  position: relative;
-  background: var(--background);
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 17px;
-  padding: 0.7em 1.8em;
-  border-radius: 50px;
-}
-.uiv_scoped_tip1 .tooltip {
-  background-color: #00a36d;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.3em 0.6em;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s;
-  border-radius: 50px;
-}
-.uiv_scoped_tip1 .tooltip::before {
-  background-color: #00a36d;
-  position: absolute;
-  content: "";
-  height: 0.6em;
-  width: 0.6em;
-  bottom: -0.2em;
-  left: 50%;
-  transform: translate(-50%) rotate(45deg);
-}
-.uiv_scoped_tip1 .tooltip-container:hover .tooltip {
-  top: -100%;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-      `}</style>
-      <div className="tooltip-container">
-  <span className="tooltip">Hello</span>
-  <span className="text">Let me Pop up</span>
-</div>
+    <div className={`uiv_scoped_tip1 relative inline-block group ${className}`}>
+      {children}
+      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-[#1e0e3d] border border-fuchsia-400/40 text-[11px] text-purple-100 font-mono-code whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 shadow-lg z-50">
+        {text}
+      </div>
     </div>
   );
 }

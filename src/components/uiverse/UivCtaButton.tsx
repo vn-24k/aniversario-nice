@@ -1,78 +1,61 @@
 import React from 'react';
 
 interface UivCtaButtonProps {
-  className?: string;
+  label?: string;
   onClick?: () => void;
-  [key: string]: any;
+  className?: string;
 }
 
-export function UivCtaButton({ className = '', onClick, ...props }: UivCtaButtonProps) {
+export function UivCtaButton({ label = "Deixar Mensagem de Amor", onClick, className = '' }: UivCtaButtonProps) {
   return (
-    <div className={`uiv_scoped_btn1 inline-block ${className}`} onClick={onClick}>
-      
+    <div className={`uiv_scoped_btn1 inline-block ${className}`}>
       <style>{`
-.uiv_scoped_btn1 .cta {
-  position: relative;
-  margin: auto;
-  padding: 11.5px 18px;
-  transition: all 0.2s ease;
-  border: 3px solid #552da8;
-  border-radius: 50px;
-  background: #552da8;
-  cursor: pointer;
-}
-.uiv_scoped_btn1 .cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: block;
-  border-radius: 50px;
-  background: white;
-  width: 45px;
-  height: 45px;
-  transition: all 0.8s ease;
-}
-.uiv_scoped_btn1 .cta span {
-  position: relative;
-  font-family: Montserrat;
-  font-size: 18px;
-  color: white;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-}
-.uiv_scoped_btn1 .cta svg {
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: white;
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.5s ease;
-}
-.uiv_scoped_btn1 .cta:hover:before {
-  width: 100%;
-  background: #1c1c1c;
-}
-.uiv_scoped_btn1 .cta:hover svg {
-  transform: translateX(0);
-  transition: all 2s ease;
-}
-.uiv_scoped_btn1 .cta:active {
-  transform: scale(0.95);
-  transition: all 2s ease;
-}
+        .uiv_scoped_btn1 .uiv-cta {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          padding: 14px 28px;
+          background: linear-gradient(135deg, rgba(224, 86, 253, 0.15) 0%, rgba(147, 51, 234, 0.25) 100%);
+          border: 1px solid rgba(224, 86, 253, 0.4);
+          border-radius: 9999px;
+          color: #f3e8ff;
+          font-family: 'Syne', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          cursor: pointer;
+          backdrop-filter: blur(16px);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 0 25px rgba(224, 86, 253, 0.2);
+        }
+        .uiv_scoped_btn1 .uiv-cta:hover {
+          background: linear-gradient(135deg, rgba(224, 86, 253, 0.35) 0%, rgba(147, 51, 234, 0.5) 100%);
+          border-color: rgba(245, 208, 97, 0.8);
+          box-shadow: 0 0 40px rgba(224, 86, 253, 0.45);
+          transform: translateY(-2px) scale(1.02);
+          color: #ffffff;
+        }
+        .uiv_scoped_btn1 .uiv-cta-arrow {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.15);
+          transition: transform 0.3s ease;
+        }
+        .uiv_scoped_btn1 .uiv-cta:hover .uiv-cta-arrow {
+          transform: translateX(4px);
+          background: rgba(245, 208, 97, 0.3);
+        }
       `}</style>
-      <button className="cta">
-  <span>Contact Us &nbsp;</span>
-  <svg viewBox="0 0 13 10" height="10px" width="15px">
-    <path d="M1,5 L11,5"></path>
-    <polyline points="8 1 12 5 8 9"></polyline>
-  </svg>
-</button>
+      <button className="uiv-cta" onClick={onClick} type="button">
+        <span>{label}</span>
+        <span className="uiv-cta-arrow">→</span>
+      </button>
     </div>
   );
 }

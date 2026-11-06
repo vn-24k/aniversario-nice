@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Sparkles, ArrowUp } from 'lucide-react';
+import { Heart, ArrowUp } from 'lucide-react';
 
 export function Footer() {
   const scrollToTop = () => {
@@ -7,49 +7,33 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative py-16 px-6 md:px-12 border-t border-white/10 z-20 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+    <footer className="relative py-16 px-6 md:px-12 border-t border-amber-300/10 z-20 max-w-5xl mx-auto text-center">
+      <div className="flex flex-col items-center justify-center space-y-4">
         
-        {/* Brand / Tribute Title */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="font-syne text-2xl font-black tracking-tight text-white uppercase">
-              N<span className="text-fuchsia-400">I</span>CE
-            </span>
-            <span className="text-xs font-mono-code text-purple-300/60 uppercase tracking-widest">
-              • 2026
-            </span>
-          </div>
-          <p className="text-xs text-purple-200/60 font-light max-w-md">
-            Homenagem de aniversário dedicada à mãe mais extraordinária, inspiradora e amada de todas. Que a sua luz continue guiando cada passo nosso.
-          </p>
+        <div className="w-10 h-10 rounded-full bg-rose-500/15 border border-rose-400/30 flex items-center justify-center text-rose-300 shadow-[0_0_20px_rgba(244,114,182,0.25)]">
+          <Heart className="w-5 h-5 fill-rose-300 text-rose-300" />
         </div>
 
-        {/* Central Love Heart */}
-        <div className="flex flex-col items-center text-center">
-          <div className="w-10 h-10 rounded-full bg-fuchsia-500/15 border border-fuchsia-500/30 flex items-center justify-center text-pink-400 mb-2 shadow-[0_0_20px_rgba(224,86,253,0.3)]">
-            <Heart className="w-5 h-5 fill-pink-400" />
-          </div>
-          <span className="text-xs font-mono-code text-purple-300/80">
-            Criado com todo o amor do mundo
-          </span>
+        <h3 className="font-serif-luxury text-2xl text-white">
+          Dona Nice — Nossa Inspiração de Vida
+        </h3>
+
+        <p className="text-xs text-stone-400 font-light max-w-md mx-auto leading-relaxed">
+          Homenagem de aniversário criada com todo o carinho e admiração pelos seus filhos, netos e toda a sua família.
+        </p>
+
+        <button
+          onClick={scrollToTop}
+          className="mt-6 flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-stone-300 hover:text-white transition-all cursor-pointer"
+        >
+          <span>Voltar ao Topo</span>
+          <ArrowUp className="w-3 h-3 text-amber-300" />
+        </button>
+
+        <div className="pt-8 text-[11px] text-stone-500">
+          © 2026 Celebração de Aniversário de Dona Nice. Feito com amor em família.
         </div>
 
-        {/* Back to top button */}
-        <div className="flex items-center gap-4">
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs text-white/80 hover:text-white transition-all cursor-pointer group"
-          >
-            <span>Voltar ao Início</span>
-            <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform text-fuchsia-400" />
-          </button>
-        </div>
-
-      </div>
-
-      <div className="mt-12 pt-8 border-t border-white/5 text-center text-[11px] font-mono-code text-purple-300/40">
-        © 2026 Nice — Celebração Exclusiva & Autoral. Todos os direitos reservados.
       </div>
     </footer>
   );
