@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Italiana&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --cosmic-dark: #05040a;
+    --cosmic-violet: #140b2a;
+    --nebula-magenta: #e056fd;
+    --nebula-glow: #c084fc;
+    --celestial-gold: #f5d061;
+  }
+
+  body {
+    background-color: #05040a;
+    color: #f3f0fa;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1, h2, h3, .font-syne {
+    font-family: 'Syne', sans-serif;
+  }
+
+  .font-serif-luxury {
+    font-family: 'Italiana', serif;
+  }
+
+  .font-decorative {
+    font-family: 'Cinzel Decorative', serif;
+  }
+
+  .font-mono-code {
+    font-family: 'Space Mono', monospace;
+  }
+}
+
+/* Custom delicate cosmic scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #05040a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(192, 132, 252, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 86, 253, 0.6);
+}
+
+/* Ambient vertical gridlines matching reference template */
+.vertical-grid-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.vertical-grid-line {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 0%, rgba(224, 86, 253, 0.06) 50%, rgba(255, 255, 255, 0.03) 100%);
+  border-right: 1px dashed rgba(255, 255, 255, 0.05);
+}
